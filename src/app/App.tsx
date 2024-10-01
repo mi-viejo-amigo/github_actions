@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import styles from './app.module.scss';
+import { MyBox } from '../components/myBox/MyBox';
 const Modal = React.lazy(
 	() => import('../components/modal' /*webpackChunkName: "modal" */)
 );
@@ -22,6 +23,9 @@ export const App = () => {
 				<Link to='/modal' className={styles.link}>
 					Перейти на станицу c компонентом Modal
 				</Link>
+				<Link to='/myBox' className={styles.link}>
+					Перейти в my-Box Component
+				</Link>
 			</div>
 			<Routes>
 				<Route
@@ -37,6 +41,14 @@ export const App = () => {
 					element={
 						<Suspense fallback={<div>Loading...</div>}>
 							<AnotherComponent />
+						</Suspense>
+					}
+				/>
+				<Route
+					path='/myBox'
+					element={
+						<Suspense fallback={<div>Loading...</div>}>
+							<MyBox />
 						</Suspense>
 					}
 				/>
