@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import styles from './app.module.scss';
-import { MyBox } from '../components/myBox/MyBox';
 const Modal = React.lazy(
 	() => import('../components/modal' /*webpackChunkName: "modal" */)
 );
@@ -11,6 +10,10 @@ const AnotherComponent = React.lazy(
 		import(
 			'../components/another-component' /*webpackChunkName: "another-component" */
 		)
+);
+
+const MyBox = React.lazy(
+	() => import('../components/myBox/MyBox' /*webpackChunkName: "myBox" */)
 );
 
 export const App = () => {
